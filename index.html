@@ -1,52 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-wrapper">
+        <h1 class="form-title">Stay updated!</h1>
+        <div class="form-mid-section">
+          <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          <ul class="list | mt-5">
+            <li>
+              <img src="/assets/images/icon-list.svg" alt="" srcset="" />
+              <span> Product discovery and building what matters</span>
+            </li>
+            <li>
+              <img src="/assets/images/icon-list.svg" alt="" srcset="" /><span>
+                Measuring to ensure updates are a success</span
+              >
+            </li>
+            <li>
+              <img src="/assets/images/icon-list.svg" alt="" />
+              <span> And much more!</span>
+            </li>
+          </ul>
+        </div>
+        <form class="form | margin-block--start-2" action="">
+          <div class="sub_title">
+            <h3 class="mb-2">Email address</h3>
+            <span id="label" class="invali">Valid email required</span>
+          </div>
 
-  <!-- Sign-up form start -->
+          <div class="form-inner-wrapper">
+            <input id="01_email" type="email" value="email@company.com" />
+            <button class="button">Subscribe to monthly newsletter</button>
+          </div>
+        </form>
+      </div>
+      <div class="image-wrapper">
+        <img
+          class="illustration"
+          src="/assets/images/illustration-sign-up-desktop.svg"
+          alt=""
+          srcset=""
+        />
+      </div>
+    </div>
 
-  Stay updated!
+    <script>
+      const email = document.getElementById("01_email");
+      const button = document.querySelector(".button");
+      const label = document.getElementById("label");
 
-  Join 60,000+ product managers receiving monthly updates on:
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
 
-  Product discovery and building what matters
-  Measuring to ensure updates are a success
-  And much more!
+        if (label.classList.contains("invalid")) {
+          label.classList.remove("invalid");
+          email.classList.remove("silly_boy");
+        }
 
-  Email address
-  email@company.com
+        const target = "@";
+        let timer = 0;
+        const text = email.value;
+        let arry = text.split("");
 
-  Subscribe to monthly newsletter
+        for (let i = 0; i < text.length; i++) {
+          if (arry[i] == "@") {
+            timer++;
+          }
+        }
 
-  <!-- Sign-up form end -->
+        if (timer === 0) {
+          label.classList.add("invalid");
+          email.classList.add("silly_boy");
+        }
+      });
 
-  <!-- Success message start -->
+      // When button is clicked if there is no @ sign in text in input
+      // add silly class on input
 
-  Thanks for subscribing!
-
-  A confirmation email has been sent to ash@loremcompany.com. 
-  Please open it and click the button inside to confirm your subscription.
-
-  Dismiss message
-
-  <!-- Success message end -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+      // for invalid label
+    </script>
+  </body>
 </html>
