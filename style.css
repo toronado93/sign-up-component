@@ -118,13 +118,18 @@ p {
   background-color: var(--clr-neutral-100);
   border-radius: 2rem;
 }
-/* 
+
 @media (max-width: 50em) {
   .container {
     display: flex;
     flex-direction: column;
+    border-radius: 0;
   }
-} */
+
+  p {
+    width: 34ch;
+  }
+}
 
 /* Form Side */
 
@@ -136,16 +141,31 @@ p {
   margin-block-start: var(--size-900);
 }
 
-/* @media (max-width: 50em) {
-    .form-wrapper  {
-      order: 2;
-    } */
+@media (max-width: 50em) {
+  /* when it comes to a give a div inline padding there is a high change to brake even columns spacing and img */
+  /* Your method should be reduce target div size with the width and align with margin-inline auto*/
+  .form-wrapper {
+    margin-block-start: 0;
+    padding-top: var(--size-500);
+    order: 2;
+    padding-bottom: var(--size-700);
+    width: 80%;
+  }
+}
 
 .form-title {
   letter-spacing: 1px;
   color: var(--clr-neutral-400);
   font-weight: var(--fw-bold);
+
+  /* You can lay element specificly */
   font-size: 54px;
+}
+
+@media (max-width: 50em) {
+  .form-title {
+    font-size: 34px;
+  }
 }
 
 .form-mid-section {
@@ -217,6 +237,9 @@ input:where([type="email"]) {
 /* IMG */
 
 .image-wrapper {
+  /* Here instead img itself we forced img wrapper specific high and told to img follow your parrent */
+  /* When you face unnecessary padding and margin problem plese look even colum as well especially with
+    flex and grid */
   max-height: 620px;
   padding: var(--size-500);
 }
@@ -224,4 +247,76 @@ input:where([type="email"]) {
 .illustration {
   width: 100%;
   height: 100%;
+}
+
+.illustration-mobile {
+  display: none;
+}
+
+@media (max-width: 50em) {
+  .illustration-mobile {
+    display: block;
+  }
+
+  .image-wrapper {
+    padding: 0;
+  }
+
+  .illustration {
+    display: none;
+  }
+}
+
+/* Success */
+
+.success {
+  background-color: var(--clr-neutral-100);
+  border-radius: 1.5rem;
+}
+@media (max-width: 50em) {
+  .success {
+    border-radius: 0;
+  }
+}
+.success-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  padding: var(--size-600) var(--size-700);
+  padding-bottom: var(--size-700);
+}
+
+@media (max-width: 50em) {
+  .success-wrapper {
+    height: 70vh;
+    justify-content: center;
+  }
+
+  /* This button can brake other button please check later */
+}
+
+.icon-success {
+  width: 45px;
+  height: 45px;
+}
+
+.success-title {
+  max-width: 14ch;
+  letter-spacing: 1px;
+  color: var(--clr-neutral-400);
+  font-weight: var(--fw-bold);
+
+  /* You can lay element specificly */
+  font-size: 40px;
+}
+
+.success-p {
+  width: 40ch;
+  font-size: 16px;
+  color: var(--clr-neutral-300);
+  padding-bottom: var(--size-300);
+}
+
+.success_span {
+  font-weight: var(--fw-bold);
 }

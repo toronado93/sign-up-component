@@ -64,6 +64,29 @@
           alt=""
           srcset=""
         />
+        <img
+          class="illustration-mobile"
+          src="/assets/images/illustration-sign-up-mobile.svg"
+          alt=""
+          srcset=""
+        />
+      </div>
+    </div>
+
+    <div style="display: none" class="success">
+      <div class="success-wrapper">
+        <img
+          class="icon-success"
+          src="/assets/images/icon-success.svg"
+          alt=""
+        />
+        <h1 class="success-title">Thanks for subscribing!</h1>
+        <p class="success-p">
+          A confirmation email has been sent to
+          <span class="success_span">osman@osmanoglu.com</span> Please open it
+          and click the button inside to confirm your subscription.
+        </p>
+        <button class="button">Dissmiss message</button>
       </div>
     </div>
 
@@ -71,6 +94,7 @@
       const email = document.getElementById("01_email");
       const button = document.querySelector(".button");
       const label = document.getElementById("label");
+      const container = document.querySelector(".container");
 
       button.addEventListener("click", (e) => {
         e.preventDefault();
@@ -94,6 +118,9 @@
         if (timer === 0) {
           label.classList.add("invalid");
           email.classList.add("silly_boy");
+        } else {
+          // terminate container and launch success
+          container.style.display = "none";
         }
       });
 
