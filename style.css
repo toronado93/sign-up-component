@@ -109,6 +109,10 @@ p {
   margin-block-start: 2rem;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Mainland */
 
 .container {
@@ -288,11 +292,31 @@ input:where([type="email"]) {
 
 @media (max-width: 50em) {
   .success-wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     height: 70vh;
-    justify-content: center;
   }
 
-  /* This button can brake other button please check later */
+  /* Grid specification */
+
+  .icon-success {
+    width: 55px !important;
+    height: 55px !important;
+    align-self: start;
+    grid-area: 2/1/2/1;
+  }
+  .success-title {
+    grid-area: 2/1/2/1;
+    align-self: end;
+  }
+  .success-p {
+    grid-area: 3/1/3/1;
+    align-self: start;
+  }
+
+  .button {
+    grid-area: 5/-1/5/-1;
+  }
 }
 
 .icon-success {
